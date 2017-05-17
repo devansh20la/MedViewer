@@ -4,3 +4,4 @@ Medical Image segmentation using active shape models on high frequency ultrasoun
 You can find all the required libararies in the import functions I will provide proper documentation of the code line by line later. For now you can run the embedding_in_tk.py and follow the GUI alternatively you can look at toberuined.py for the code on ASM
 
 Thank you 
+
