@@ -1,5 +1,5 @@
 # MedViewer
-Medical Image segmentation using active shape models on high frequency ultrasound data. The algorithm performs training as well as segmentation of Brain Ventricle of mouse embryo from high frequency ultrasound images. We use simple ITK to perform registration of images and save the registration results, the further processing is performed on the saved dataset. I cannot post the dataset for obvious reasons but you can look at my codes and use it for your needs. The program also contains a graphical user interface over the entire algorithm.
+Medical Image segmentation using active shape models on high frequency ultrasound data. The algorithm performs training as well as segmentation of Brain Ventricle of mouse embryo from high frequency ultrasound images. We use simple ITK to perform registration of images and save the registration results, the further processing is performed on the saved dataset. The program also contains a graphical user interface over the entire algorithm.
 
 Steps to run the codes:
 1) Install all the dependencies listed below. If you are using conda make sure to create a new environment to prevent the library conflicts.
