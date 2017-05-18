@@ -5,15 +5,15 @@ Steps to run the codes:
 1) Install all the dependencies listed below. If you are using conda make sure to create a new environment to prevent the library conflicts.
   
 from PyQt4 import QtGui, QtCore \
-from scipy import io
-import numpy as np
-import pyqtgraph as pg
-import SimpleITK as sitk
-from mayavi import mlab as ml
-from pyface.qt import QtGui, QtCore
-from traits.api import HasTraits, Instance, on_trait_change
-from traitsui.api import View, Item
-from mayavi.core.ui.api import MayaviScene, MlabSceneModel, SceneEditor
+from scipy import io \
+import numpy as np \
+import pyqtgraph as pg \
+import SimpleITK as sitk \
+from mayavi import mlab as ml \
+from pyface.qt import QtGui, QtCore \
+from traits.api import HasTraits, Instance, on_trait_change \
+from traitsui.api import View, Item \
+from mayavi.core.ui.api import MayaviScene, MlabSceneModel, SceneEditor \
 
 2) Perform registration of the dataset on any reference image from the dataset and save the results using initial_registration.py
 
