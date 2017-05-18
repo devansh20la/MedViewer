@@ -15,10 +15,10 @@ from traits.api import HasTraits, Instance, on_trait_change \
 from traitsui.api import View, Item \
 from mayavi.core.ui.api import MayaviScene, MlabSceneModel, SceneEditor \
 
-2) Perform registration of the dataset on any reference image from the dataset and save the results using initial_registration.py
+2) Perform registration of the dataset on any reference image from the dataset and save the results using initial_registration.py (Since my dataset was arranged as dictionary of dictionary you might need to change the loading function)
 
 3) Run GUI.py to run the graphical user interface and follow the buttons. A brief description of each button is provided below:
-  3a) Train ASM: Select the pre registered training ground truth label with the first selection as the reference image. The       mean shape obtained after training is shown as a pop-up. Please note you need to close the figure to prevent the GUI         from plotting the final result on the same figure.
+  3a) Train ASM: Select the pre registered training ground truth label with the first selection as the reference image. The       mean shape obtained after training is shown as a pop-up. Please note you need to close the figure to prevent the GUI         from plotting the final result on the same figure. (The step assumes dataset is saved a numpy array)
   3b) Get Image: Select the target image or testing image.
   3c) ASM requires a very good initialization and the intial centroid must be defined inside function_class.py->matching:         boxrange.
   3d) Click on run ASM
