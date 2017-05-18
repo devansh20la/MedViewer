@@ -4,12 +4,8 @@ from skimage import measure
 from matplotlib import pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from mayavi import mlab as ml
-import vtk
-from vtk.util import numpy_support
 import SimpleITK as sitk
 from shapecontext import histogram as ht
-from time import time
-from ipywidgets import interact, fixed
 from mypca import pcaupdate as pcup
 from histcost import costfunction as ctfunc
 
@@ -44,7 +40,6 @@ class shapemodels():
         temp = np.reshape(temp, (-1, 3), order='F')
         ml.points3d(temp[:, 0], temp[:, 1], temp[:, 2], colormap="copper", scale_factor=0.5)
 
-    # ml.show()
 
     def correspondence(self,data,defboxrange):
 
@@ -129,89 +124,3 @@ class shapemodels():
             target_points[l, :] = (i, j, k) + verts[l, :] - boxrange
 
         return target_points
-
-# print ("......Loading ref shape.........")
-
-# location = '/Users/devansh20la/Documents/Vision lab/mydata/'
-# filename = ['E14.npy', 'E16.npy','E15.npy', 'E18.npy', 'E19.npy', 'E35.npy', 'E36.npy', 'E37.npy']
-
-# data1 = inputdata(str(location) + str(filename[0]))
-# data1.marchingcube()
-# print data1.verts.shape[0]
-
-# data2 = inputdata(str(location) + str(filename[2]))
-# data2.marchingcube()
-
-# print ("...Initializing reference shape....")
-# activeshape = shapemodels(data1)
-
-# print ("......Loading entire dataset.........")
-
-# DD = {}
-# N = len(filename)
-
-# temp = np.zeros((data1.verts.shape[0], (N - 1) * 3))
-
-# for i in range(1, N):
-#     DD[filename[i]] = inputdata(str(location) + str(filename[i]))
-#     DD[filename[i]].marchingcube()
-#     print DD[filename[i]].verts.shape[0]
-#     flag = 1
-#     defboxrange = 10
-#     while (flag==1):
-#         temp[:, 3 * (i - 1):3 * (i - 1) + 3],flag = activeshape.correspondence(DD[filename[i]],defboxrange)
-#         defboxrange = defboxrange + 2
-
-
-
-
-# # print("...Removing non corresponding points.....")
-# # idx = np.unique(np.argwhere(temp == 0)[:, 0])
-
-# # temp = np.delete(temp, idx, 0)
-# # X = np.reshape(temp, (-1, N-1), order='F')
-
-# # if maxpoints<DD[filename[i]].verts.shape[0]:
-# # 	maxpoints = DD[filename[i]].verts.shape[0]
-# # if minpoints>DD[filename[i]].verts.shape[0]:
-# # 	minpoints = DD[filename[i]].verts.shape[0]
-
-
-# # X = np.zeros((3*data1.verts.shape[0],N-1))
-
-# # for i in range(1,N):
-# # 	temp = DD[filename[i]].verts
-# # 	temp = temp - np.mean(temp,axis=0)
-# # 	temp = np.reshape(temp,(-1,1))
-# # 	X[0:temp.shape[0],i-1] = temp[:,0]
-
-# # for i in range(3*minpoints,3*maxpoints):
-# # 	idx = np.argwhere(X[i,:]==0)
-# # 	nidx = np.argwhere(X[i,:]!=0)
-# # 	mn = np.mean(X[i,nidx])
-# # 	X[i,idx] = mn
-
-
-
-# # activeshape.initializeshapemodel(X)
-# # activeshape.show()
-
-# # # b = activeshape.shapeparams
-# # userpoint = (10,10,10)dat
-# # temp = io.loadmat('/Users/devansh20la/Documents/Vision lab/Data/141225_Data for Poly/E10.5/E15.mat')
-# # target_image = temp['dataLib']['inputData'][0][0]
-# # target = activeshape.matching(target_image, userpoint)
-# # np.save('target',target)
-
-# # ml.figure('Segmentation PCA')
-# # # # ml.triangular_mesh([vert[0] for vert in target],[vert[1] for vert in target],[vert[2] for vert in target],data1.faces) 
-# # ml.points3d(target[:, 0], target[:, 1], target[:, 2], colormap="copper", scale_factor=0.5)
-# # # activeshape.show(1,faces=None)
-# # ml.show()
-# # plt.show()
-# # activeshape.show(1,faces = None)
-# # data1 = inputdata(str(location) + str(filename[1]))
-
-# # print ("...Updating parameters.....")
-# # activeshape.updateparamas(data1)
-# # activeshape.updateparamas(data1)

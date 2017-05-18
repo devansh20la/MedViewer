@@ -3,20 +3,8 @@ from scipy import io
 from skimage import measure
 from matplotlib import pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
-
 from mayavi import mlab as ml
-
-import vtk
-from vtk.util import numpy_support
-
 import SimpleITK as sitk
-
-from shapecontext import histogram as ht
-from time import time
-
-from ipywidgets import interact, fixed
-from mypca import pcaupdate as pcup
-from histcost import costfunction as ctfunc
 
 def rigid_registration(fixed_image, moving_image):
     fixed_image = sitk.GetImageFromArray(fixed_image)
@@ -56,25 +44,23 @@ print ("......Loading ref shape.........")
 
 location = '/Users/devansh20la/Documents/Vision lab/Data/141225_Data for Poly/E10.5/'
 filename = ['E14.mat','E16.mat', 'E15.mat', 'E18.mat', 'E19.mat', 'E35.mat', 'E36.mat', 'E37.mat']
+
 temp = io.loadmat(str(location) + str(filename[0]))
-# temp1 = io.loadmat(str(location) + str(filename[1]))
+temp1 = io.loadmat(str(location) + str(filename[1]))
 
 input_image = temp['dataLib']['inputData'][0][0]
 input_volume = np.array(temp['dataLib']['groundTruth'][0][0]==1,dtype='float32')
 
-# input_image1 = temp1['dataLib']['inputData'][0][0]
-# input_volume1 = np.array(temp1['dataLib']['groundTruth'][0][0]==1,dtype='float32')
+input_image1 = temp1['dataLib']['inputData'][0][0]
+input_volume1 = np.array(temp1['dataLib']['groundTruth'][0][0]==1,dtype='float32')
 
-# newvolume = rigid_registration(fixed_image=input_volume, moving_image=input_volume1)
-# name = '/Users/devansh20la/Documents/Vision lab/mydata/' + str('E14')
+newvolume = rigid_registration(fixed_image=input_volume, moving_image=input_volume1)
+# np.save(newvolume)
 
-# targets = np.load('target.npy')
-# io.savemat('target.mat',{'foo': targets})
-
-verts, faces, normals, values = measure.marching_cubes(input_volume, spacing=(1,1,1), step_size=3, gradient_direction='descent')
+# verts, faces, normals, values = measure.marching_cubes(input_volume, spacing=(1,1,1), step_size=3, gradient_direction='descent')
 # verts1, faces1, normals1, values1 = measure.marching_cubes(newvolume, spacing = (1,1,1), step_size=3, gradient_direction='descent')
 
-io.savemat('imagepoints.mat',{'foo':verts})
+# io.savemat('imagepoints.mat',{'foo':verts})
 # print np.mean(verts,axis=0)
 # print verts1.shape[0]
 

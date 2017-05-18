@@ -12,10 +12,10 @@ sip.setapi('QUrl', 2)
 from PyQt4 import QtGui, QtCore
 from scipy import io
 import numpy as np
-import finallll
+import user_interface
 import pyqtgraph as pg
 import SimpleITK as sitk
-import toberuined as code
+import functions_class as code
 from mayavi import mlab as ml
 from pyface.qt import QtGui, QtCore
 from traits.api import HasTraits, Instance, on_trait_change
@@ -39,7 +39,7 @@ class inputdata():
         # ml.show()
 
 
-class Window(QtGui.QMainWindow, finallll.Ui_MainWindow,inputdata):
+class Window(QtGui.QMainWindow, user_interface.Ui_MainWindow,inputdata):
 
     def __init__(self):
 

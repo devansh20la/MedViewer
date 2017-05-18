@@ -1,15 +1,7 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'medviewer.ui'
-#
-# Created by: PyQt5 UI code generator 5.8.2
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt4 import QtCore, QtGui
 import pyqtgraph as pg
 from pyqtgraph import ImageView
-import hello as hl
+import mayavi_widget as hl
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -95,7 +87,7 @@ class Ui_MainWindow(object):
         self.runASM.setText(_translate("MainWindow", "Run ASM"))
         self.TrainASM.setText(_translate("MainWindow", "TrainASM"))
         self.label.setText(_translate("MainWindow", "MedViewer"))
-        self.label_2.setText(_translate("MainWindow", "Devansh & Amir"))
+        self.label_2.setText(_translate("MainWindow", "Devansh"))
         self.pushButton.setText(_translate("MainWindow", "Select Point"))
 
 
