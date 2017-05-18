@@ -4,7 +4,7 @@ Medical Image segmentation using active shape models on high frequency ultrasoun
 Steps to run the codes:
 1) Install all the dependencies listed below. If you are using conda make sure to create a new environment to prevent the library conflicts.
   
-from PyQt4 import QtGui, QtCore
+from PyQt4 import QtGui, QtCore \
 from scipy import io
 import numpy as np
 import pyqtgraph as pg
